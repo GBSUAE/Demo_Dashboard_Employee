@@ -128,3 +128,8 @@
     display: block;
   }
 }
+
+.navbar5-logo {
+  height: 32px;
+  object-fit: contain;
+}
