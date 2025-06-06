@@ -1,60 +1,136 @@
-.profile-section {
-  margin-bottom: 25px;
-  padding: 20px;
-  background: white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+/* === Profile Layout === */
+.profile-layout {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* === Profile Card === */
+.profile-card {
+  flex: 0 0 250px;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
   border-radius: 8px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.profile-card-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.profile-card p {
+  margin: 0.5rem 0;
+}
+
+/* === Profile Sections === */
+.profile-sections {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.profile-section {
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative;
 }
 
 .section-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
-.section-edit-btn {
-  background-color: #003366;
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
+.section-header h2 {
+  margin: 0;
+}
+
+.edit-icon {
   cursor: pointer;
-  font-size: 14px;
+  color: var(--primary-color);
+  font-size: 1.2rem;
 }
 
-.section-edit-btn:hover {
-  background-color: #002244;
+.section-view p {
+  margin: 0.5rem 0;
 }
 
-.profile-field {
-  margin-bottom: 10px;
+.section-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.save-btn, .cancel-btn {
-  margin-top: 10px;
-  margin-right: 10px;
-  padding: 8px 16px;
-  border: none;
+/* === Form Fields === */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input, .textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* === Edit Buttons === */
+.edit-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* === Dependent Drama === */
+#dependent-section {
+  background-color: #f9f9f9;
+  padding: 1rem;
   border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
+  margin-top: 1rem;
+  border: 1px dashed #ccc;
 }
 
-.save-btn {
-  background-color: #003366;
-  color: white;
+.child-block {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 6px;
+  background-color: #fafafa;
 }
 
-.cancel-btn {
-  background-color: #999;
-  color: white;
+.child-block h4 {
+  margin-top: 0;
 }
 
-.save-btn:hover {
-  background-color: #002244;
+/* === Emergency Contact Drama === */
+#emergency-contact-section .form-group {
+  transition: all 0.3s ease;
 }
 
-.cancel-btn:hover {
-  background-color: #666;
+#emergency-contact-section .form-group.hidden {
+  display: none;
+}
+
+#view-dependent-section {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 6px;
+  border: 1px dashed #ccc;
 }
