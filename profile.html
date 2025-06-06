@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Profile - GBS Employee Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="components/navbar5.css" rel="stylesheet" />
+  <link href="components/footer4.css" rel="stylesheet" />
+  <link href="profile.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <navbar5-wrapper></navbar5-wrapper>
+
+  <!-- Profile Page Content -->
+  <div class="home-container" style="max-width: 900px; margin: 30px auto; padding: 20px;">
+    <h1 class="thq-heading-1" style="text-align: center; margin-bottom: 30px;">EMPLOYEE PROFILE</h1>
+
+    <!-- SECTION: Personal Information -->
+    <div class="profile-section">
+      <div class="section-header">
+        <h3>Personal Information</h3>
+        <button class="section-edit-btn" onclick="editSection('personalSection')">Edit</button>
+      </div>
+      <div id="personalSection-view">
+        <div class="profile-field">Full Name: <strong>John Doe</strong></div>
+        <div class="profile-field">Date of Birth: <strong>1990-05-15</strong></div>
+        <div class="profile-field">Gender: <strong>Male</strong></div>
+        <div class="profile-field">Marital Status: <strong>Single</strong></div>
+      </div>
+      <div id="personalSection-edit" style="display:none;">
+        <label>Full Name:<input class="thq-input" type="text" value="John Doe" /></label><br>
+        <label>Date of Birth:<input class="thq-input" type="date" value="1990-05-15" /></label><br>
+        <label>Gender:
+          <select class="thq-input">
+            <option selected>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </label><br>
+        <label>Marital Status:
+          <select class="thq-input">
+            <option selected>Single</option>
+            <option>Married</option>
+            <option>Divorced</option>
+            <option>Widowed</option>
+          </select>
+        </label><br>
+        <button class="save-btn" onclick="saveSection('personalSection')">Submit for HR Approval</button>
+        <button class="cancel-btn" onclick="cancelEdit('personalSection')">Cancel</button>
+      </div>
+    </div>
+
+    <!-- SECTION: Contact Information -->
+    <div class="profile-section">
+      <div class="section-header">
+        <h3>Contact Information</h3>
+        <button class="section-edit-btn" onclick="editSection('contactSection')">Edit</button>
+      </div>
+      <div id="contactSection-view">
+        <div class="profile-field">Personal Email: <strong>john.personal@example.com</strong></div>
+        <div class="profile-field">Official Email: <strong>john.doe@gbs.com</strong> (View Only)</div>
+        <div class="profile-field">Phone: <strong>+971 50 123 4567</strong></div>
+        <div class="profile-field">Address: <strong>Dubai, UAE</strong></div>
+      </div>
+      <div id="contactSection-edit" style="display:none;">
+        <label>Personal Email:<input class="thq-input" type="email" value="john.personal@example.com" /></label><br>
+        <label>Official Email:<input class="thq-input" type="email" value="john.doe@gbs.com" readonly /></label><br>
+        <label>Phone:<input class="thq-input" type="text" value="+971 50 123 4567" /></label><br>
+        <label>Address:<textarea class="thq-input" rows="3">Dubai, UAE</textarea></label><br>
+        <button class="save-btn" onclick="saveSection('contactSection')">Submit for HR Approval</button>
+        <button class="cancel-btn" onclick="cancelEdit('contactSection')">Cancel</button>
+      </div>
+    </div>
+
+    <!-- SECTION: ID Documents -->
+    <div class="profile-section">
+      <div class="section-header">
+        <h3>ID Documents</h3>
+        <button class="section-edit-btn" onclick="editSection('idSection')">Edit</button>
+      </div>
+      <div id="idSection-view">
+        <div class="profile-field">Passport No: <strong>X1234567</strong></div>
+        <div class="profile-field">Emirates ID: <strong>784-XXXX-XXXXXXX-X</strong></div>
+        <div class="profile-field">Documents: <a href="#">Download</a></div>
+      </div>
+      <div id="idSection-edit" style="display:none;">
+        <label>Passport No:<input class="thq-input" type="text" value="X1234567" /></label><br>
+        <label>Emirates ID:<input class="thq-input" type="text" value="784-XXXX-XXXXXXX-X" /></label><br>
+        <label>Upload ID Documents:<input class="thq-input" type="file" multiple /></label><br>
+        <button class="save-btn" onclick="saveSection('idSection')">Submit for HR Approval</button>
+        <button class="cancel-btn" onclick="cancelEdit('idSection')">Cancel</button>
+      </div>
+    </div>
+
+    <!-- SECTION: Emergency Contact -->
+    <div class="profile-section">
+      <div class="section-header">
+        <h3>Emergency Contact</h3>
+        <button class="section-edit-btn" onclick="editSection('emergencySection')">Edit</button>
+      </div>
+      <div id="emergencySection-view">
+        <div class="profile-field">Contact Name: <strong>Jane Doe</strong></div>
+        <div class="profile-field">Relation: <strong>Sister</strong></div>
+        <div class="profile-field">Contact Phone: <strong>+971 50 987 6543</strong></div>
+      </div>
+      <div id="emergencySection-edit" style="display:none;">
+        <label>Contact Name:<input class="thq-input" type="text" value="Jane Doe" /></label><br>
+        <label>Relation:<input class="thq-input" type="text" value="Sister" /></label><br>
+        <label>Contact Phone:<input class="thq-input" type="text" value="+971 50 987 6543" /></label><br>
+        <button class="save-btn" onclick="saveSection('emergencySection')">Submit for HR Approval</button>
+        <button class="cancel-btn" onclick="cancelEdit('emergencySection')">Cancel</button>
+      </div>
+    </div>
+
+    <!-- SECTION: Employment Information (VIEW ONLY) -->
+    <div class="profile-section">
+      <div class="section-header">
+        <h3>Employment Information</h3>
+      </div>
+      <div>
+        <div class="profile-field">Employee ID: <strong>EMP-00123</strong></div>
+        <div class="profile-field">Designation: <strong>Software Engineer</strong></div>
+        <div class="profile-field">Department: <strong>IT</strong></div>
+        <div class="profile-field">Manager: <strong>Ahmed Khan</strong></div>
+        <div class="profile-field">Joining Date: <strong>2024-01-10</strong></div>
+      </div>
+    </div>
+
+    <!-- SECTION: Bank Information -->
+    <div class="profile-section">
+      <div class="section-header">
+        <h3>Bank Information</h3>
+        <button class="section-edit-btn" onclick="editSection('bankSection')">Edit</button>
+      </div>
+      <div id="bankSection-view">
+        <div class="profile-field">Bank Name: <strong>Emirates NBD</strong></div>
+        <div class="profile-field">Bank Branch: <strong>Dubai Main</strong></div>
+        <div class="profile-field">Account Holder Name: <strong>John Doe</strong></div>
+        <div class="profile-field">IBAN: <strong>AE123456789012345678901</strong></div>
+        <div class="profile-field">Document: <a href="#">Download</a></div>
+      </div>
+      <div id="bankSection-edit" style="display:none;">
+        <label>Bank Name:<input class="thq-input" type="text" value="Emirates NBD" /></label><br>
+        <label>Bank Branch:<input class="thq-input" type="text" value="Dubai Main" /></label><br>
+        <label>Account Holder Name:<input class="thq-input" type="text" value="John Doe" /></label><br>
+        <label>IBAN:<input class="thq-input" type="text" value="AE123456789012345678901" /></label><br>
+        <label>Upload Bank Document:<input class="thq-input" type="file" /></label><br>
+        <button class="save-btn" onclick="saveSection('bankSection')">Submit for HR Approval</button>
+        <button class="cancel-btn" onclick="cancelEdit('bankSection')">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer4-wrapper></footer4-wrapper>
+
+  <!-- JS to handle Edit / Cancel per section -->
+  <script>
+    function editSection(sectionId) {
+      document.getElementById(sectionId + '-view').style.display = 'none';
+      document.getElementById(sectionId + '-edit').style.display = 'block';
+    }
+
+    function cancelEdit(sectionId) {
+      document.getElementById(sectionId + '-edit').style.display = 'none';
+      document.getElementById(sectionId + '-view').style.display = 'block';
+    }
+
+    function saveSection(sectionId) {
+      // You can hook this to your API call to send data to HR
+      alert("Changes submitted for HR approval.");
+      cancelEdit(sectionId); // Go back to View mode after "submission"
+    }
+  </script>
+
+</body>
+</html>
